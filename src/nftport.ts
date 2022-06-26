@@ -147,7 +147,7 @@ function createMetadata(_file:File, _name:string, _description:string, _properti
             "Content-Type": "multipart/form-data",
             "content-type": "content-type: multipart/form-data; boundary=---011000010111000001101001"
         }
-    }).then(function(response){
+    }).then(function(response:any){
         axios({
             method: "post",
             url: "https://api.nftport.xyz/v0/metadata",
