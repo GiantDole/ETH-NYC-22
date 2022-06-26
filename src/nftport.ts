@@ -155,8 +155,8 @@ function createMetadata(_file:File, _name:string, _description:string, _properti
             data: {
                 "name": _name,
                 "description": _description,
-                "properties": _properties
-                //"file_url": response.ipfs_url
+                "properties": _properties,
+                "file_url": response.ipfs_url
             }
         }).then(function (response) {
             return response;
