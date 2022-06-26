@@ -23,7 +23,7 @@ Furthermore, as we incorporate Lens's social profiles, all the user data and act
 
 <a name="WalletConnect"/></a>
 ### WalletConnect
-Wallet address is our new user id. Logging into our platform through WalletConnect allows for maximal flexibility of wallet types and services. To authenticate users for any critical functionality (such as buying a ticket, applying for a hackathon, etc.), we use WalletConnect to sign the transactions.
+Wallet address is our new authentication method. We are extending the firebase auth module for flutter to create an OAUTH token from the ethereum wallet id and private key. Logging into our platform through WalletConnect allows for maximal flexibility of wallet types and services. To authenticate users for any critical functionality (such as buying a ticket, applying for a hackathon, etc.), we use WalletConnect to sign the transactions.
 
 ---
 
@@ -42,4 +42,6 @@ Furthermore, we want to store student data decentralized and with user-managed a
 
 <a name="Lens"/></a>
 ### Lens
+
+With lens we save user profiles on chain as well as the following feature. Users can connect with their wallet and create a profile with lens. If another user also has a lens profile, you can follow him or her on chain.
 
