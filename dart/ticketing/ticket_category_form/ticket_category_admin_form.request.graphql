@@ -1,0 +1,92 @@
+query ReadTicketCategoryAdmin($ticketCategoryID: ID!) {
+  ticketCategories(where: { id: $ticketCategoryID }) {
+    id
+    name
+    ticketPrice
+    ticketAmount
+    description
+    startSales
+    endSales
+    #TODO how many tickets already sold?
+  }
+}
+
+#TODO create, update, delete mutations (with alfio)
+mutation CreateTicketCategory(
+  $name: String!
+  $ticketPrice: Float!
+  $ticketAmount: Int!
+  $description: String!
+  $startSales: DateTime!
+  $endSales: DateTime!
+  $eventID: ID!
+  $eventRolesID: ID!
+) {
+  createTicketCategories(
+    input: [
+      {
+        name: $name
+        ticketPrice: $ticketPrice
+        ticketAmount: $ticketAmount
+        description: $description
+        startSales: $startSales
+        endSales: $endSales
+        ticketing: {
+          connect: [{ where: { node: { event: { id: $eventID } } } }]
+        }
+        eventRolesGiven: {
+          connect: [{ where: { node: { id: $eventRolesID } } }]
+        }
+      }
+    ]
+  ) {
+    ticketCategories {
+      id
+    }
+  }
+}
+
+mutation DeleteTicketCategory(
+  $ticketCategoryID:ID!
+) {
+  deleteTicketCategories(where: { id:  $ticketCategoryID }) {
+    nodesDeleted
+    relationshipsDeleted
+  }
+}
+
+
+mutation UpdateTicketCategory(
+   $ticketCategoryID:ID!
+   $name: String!
+  $ticketPrice: Float!,
+  $ticketAmount: Int!
+  $description: String!
+  $startSales: DateTime!
+  $endSales: DateTime!
+  $oldEventRolesID: ID
+    $newEventRolesID: ID
+
+) {
+  updateTicketCategories(
+    where: { id: $ticketCategoryID }
+    update: {
+      name: $name
+      ticketPrice: $ticketPrice
+      ticketAmount: $ticketAmount
+      description: $description
+      startSales: $startSales
+      endSales: $endSales
+    }
+    disconnect: { eventRolesGiven: [{ where: { node: { id: $oldEventRolesID } } }] }
+    connect: { eventRolesGiven: [{ where: { node: { id: $newEventRolesID } } }] }
+  ) {
+    ticketCategories {
+      __typename
+      id
+    }
+  }
+}
+
+
+
