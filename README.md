@@ -1,3 +1,5 @@
+
+
 ### Table of Contents
 
 [Polygon](#Polygon)
@@ -6,9 +8,9 @@
 
 [NFTPort](#NFTPort)
 
-[Filecoin](#Filecoin)
+[IPFS & Filecoin](#Filecoin)
 
-[Chainlink](#Chainlink)
+[Lens](#Lens)
 
 ---
 
@@ -27,27 +29,17 @@ Wallet address is our new user id. Logging into our platform through WalletConne
 
 <a name="NFTPort"/></a>
 ### NFTPort
-NFTPort made our life at NFT NYC much easier. With simple API calls we're using NFTPort to upload files and metadata, mint new event and ticket NFTs, and retrieve data about an event or user. 
+NFTPort made our life at ETH NYC much easier. With simple API calls we're using NFTPort to upload files and metadata, mint new event and ticket NFTs, and retrieve data about an event or user. Without writing any contracts, we were able to set up the whole (sophisticated) NFT component of our project in no time! :)
 
 ---
 
 <a name="Filecoin"/></a>
-### Filecoin / IPFS
+### Filecoin & IPFS
+For each ticket type we require an image and metadata. We use NFT.storage to persist images for our NFT tickets and their metadata.
+Furthermore, we want to store student data decentralized and with user-managed access-control. This allows students to, e.g., apply for hackathons or travel sponsorship while giving only the organizers viewing rights. Students can rest assured that their data is not sold. :) 
 
 ---
 
-<a name="Chainlink"/></a>
-### Chainlink
+<a name="Lens"/></a>
+### Lens
 
----
-
-
-NPM packages:
-- Web3
-- dotenv (securely store private keys in frontend)
-
-Functions:
-- buyTicket
-- createTicket
-- createEventTickets
-- checkPosessiom
