@@ -1,0 +1,11 @@
+
+query userTickets($userID:ID) {
+  tickets(where: {
+    holder: {
+      id: $userID,
+    },
+  }) {
+     __typename
+    ...TicketCard
+  }
+}
