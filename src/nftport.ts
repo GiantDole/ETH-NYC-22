@@ -135,7 +135,7 @@ function makeStorageClient () {
 
 //TODO hier file input
 //TODO ipfs_url aus response (is dictionary)
-function createMetadata(_file:File, _name:string, _description:string) {
+function createMetadata(_file:File, _name:string, _description:string, _properties:any) {
 
     var formData = new FormData();
     formData.append("file", _file);
@@ -155,6 +155,7 @@ function createMetadata(_file:File, _name:string, _description:string) {
             data: {
                 "name": _name,
                 "description": _description,
+                "properties": _properties
                 //"file_url": response.ipfs_url
             }
         }).then(function (response) {
