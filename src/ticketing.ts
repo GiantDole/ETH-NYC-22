@@ -44,7 +44,7 @@ function createMetadata(_file:File, _name:string, _description:string) {
             "Content-Type": "multipart/form-data",
             "content-type": "content-type: multipart/form-data; boundary=---011000010111000001101001"
         }
-    }).then(function(response){
+    }).then(function(response:any){
         axios({
             method: "post",
             url: "https://api.nftport.xyz/v0/metadata",
@@ -52,7 +52,7 @@ function createMetadata(_file:File, _name:string, _description:string) {
             data: {
                 "name": _name,
                 "description": _description,
-                //"file_url": response.ipfs_url
+                "file_url": response.ipfs_url
             }
         }).then(function (response) {
             return response;
@@ -134,6 +134,26 @@ async function mintEventNFT1155(_name:string, _symbol:string, _owner:string, _ch
     });
 
     return ret;
+}
+
+async function getContractAddress(_tx_hash:string){
+  const options = {
+    method: 'GET',
+    url: `https://api.nftport.xyz/v0/mints/${_tx_hash}`,
+    params: {chain: chain},
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: AUTH_KEY
+    }
+  };
+
+  let ret = await axios.request(options).then(function (response) {
+    return response.data;
+  }).catch(function (error) {
+    console.error(error);
+  });
+
+  return ret;
 }
 
 /**
