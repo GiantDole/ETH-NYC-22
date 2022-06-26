@@ -12,6 +12,8 @@
 
 [Lens](#Lens)
 
+[Tatum](#Tatum)
+
 ---
 
 <a name="Polygon"/></a>
@@ -48,3 +50,9 @@ Furthermore, we want to store student data decentralized and with user-managed a
 
 With lens we save user profiles on chain. Users can connect with their wallet and create a profile with lens. We implemented the challenge request and authentication process. (src/lens.ts)
 
+---
+
+<a name="Tatum"/></a>
+### Tatum
+
+Using Tatum's APIs, we get the polygon account balance for the currently logged in user. Exciting!
