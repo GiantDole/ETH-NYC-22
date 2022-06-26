@@ -43,8 +43,8 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../../../../../../constants.dart';
 import '../../../../../../../../injection.dart';
-import 'blocs/create_ticket_category_bloc.dart';
-import 'blocs/update_ticket_category_bloc.dart';
+import '../blocs/create_ticket_category_bloc.dart';
+import '../blocs/update_ticket_category_bloc.dart';
 
 class TicketCategoryForm extends StatelessWidget implements AutoRouteWrapper {
   final String? ticketCategoryID;
